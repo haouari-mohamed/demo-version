@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Users, MapPin } from 'lucide-react';
+import { Calendar, Users, MapPin, Video } from 'lucide-react';
 
 const Videos = () => {
   const events = [
@@ -7,6 +7,7 @@ const Videos = () => {
       title: "Geopolitics of ICT Standardisation Focus on the USA",
       date: "December 2nd, 2024",
       organizer: "The Standards Training Academy",
+      videoUrl: "https://www.youtube.com/embed/XCp8Mgq1nAU?si=z8KhjribgyLbqY-M", 
       speakers: [
         "Knut Blind, Fraunhofer ISI & TU Berlin",
         "Maria P. Knake, NIST",
@@ -25,6 +26,7 @@ const Videos = () => {
       title: "The German Caselaw on Standard-Essential Patents",
       date: "August 26th, 2024",
       organizer: "BRELA Research & Partners",
+      videoUrl: "https://www.youtube.com/embed/AdUVYcd7jKo?si=rkAwp8xBOEjzpiK8", 
       speakers: [
         "Peter Georg Picht, University of Zurich",
         "Tom Cotter, University of Minnesota",
@@ -36,6 +38,81 @@ const Videos = () => {
         "Injunctions",
         "German caselaw",
         "Huawei v ZTE"
+      ]
+    },
+    {
+      title: "Global Standards Leadership Conference 2024",
+      date: "June 13th, 2024",
+      location: "Berkeley",
+      organizer: "BRELA Research and Partners",
+      videoUrl: "https://www.youtube.com/embed/RYz71QN2nV4?si=YjUz56_6-SONYyW2", 
+      speakers: [
+        "Prakash Sangam, Tantra Analyst",
+        "Bowman Heiden, Haas School of Business Berkeley",
+        "Siddhi Shah, Micron Technology",
+        "Alan Fan, Huawei Technologies"
+      ],
+      topics: [
+        "Status of open standards for AI",
+        "Leadership in AI development",
+        "Government policies for AI standards",
+        "Patenting of AI innovations",
+        "The role for SEPs in future AI standards"
+      ]
+    },
+    {
+      title: "European Technology Leadership Under Threat",
+      date: "November 30th, 2023",
+      location: "Brussels",
+      organizer: "Euractiv/Nokia",
+      videoUrl: "https://www.youtube.com/embed/4t_-0ADYX0s?si=9uUcbIO706o9tnHP", 
+      moderator: "Jennifer Baker, Euractiv",
+      speakers: [
+        "Justus Baron, BRELA Research",
+        "Chris Hannon, USPTO",
+        "Sonja London, Tactotek",
+        "Collette Rawnsley, Nokia",
+        "Folkert Teernstra, TNO"
+      ],
+      topics: [
+        "EU SEP Regulation",
+        "Impact Assessment"
+      ],
+      links: [
+        "Empirical Assessment of Potential Challenges in SEP Licensing",
+        "Essentiality Checks for Potential SEPs"
+      ]
+    },
+    {
+      title: "C-IP2 Annual Fall Conference",
+      date: "October 12th & 13th, 2023",
+      location: "Washington D.C.",
+      organizer: "C-IP2",
+      videoUrl: "https://www.youtube.com/embed/A3ZnCvmAaWs?si=sS6CRFTYFGPS2zPh", 
+      moderator: "Andrei Iancu, Sullivan & Cromwell",
+      speakers: [
+        "Ken Adamo, Law Office of KRAdamo",
+        "Justus Baron, BRELA Research",
+        "Claudia Tapia, 4iP Council & Ericsson",
+        "John Kolakowski, Nokia Technologies"
+      ],
+      topics: [
+        "German caselaw",
+        "SEPs",
+        "Injunctions"
+      ]
+    },
+    {
+      title: "4iP Council Webinar: SEP Regulation",
+      date: "September 20th, 2023",
+      organizer: "4iP Council",
+      videoUrl: "https://www.youtube.com/embed/6UaozKj1vZw?si=V783GipaEmg24k4h", 
+      moderator: "Axel Ferrazzini, 4iP Council",
+      speakers: ["Justus Baron, BRELA Research"],
+      topics: [
+        "EU SEP Regulation",
+        "Impact Assessment",
+        "Aggregate Royalty determination"
       ]
     }
   ];
@@ -50,18 +127,45 @@ const Videos = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {event.videoUrl ? (
+                <div className="aspect-w-16 aspect-h-11">
+                  <iframe
+                    src={event.videoUrl}
+                    title={event.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full"
+                  ></iframe>
+                </div>
+              ) : (
+                <div className="bg-gray-100 aspect-w-16 aspect-h-9 flex items-center justify-center">
+                  <Video className="h-12 w-12 text-gray-400" />
+                </div>
+              )}
               <div className="p-6">
                 <div className="flex items-center mb-4">
                   <Calendar className="h-5 w-5 text-blue-900 mr-2" />
                   <span className="text-blue-900 font-medium">{event.date}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">{event.title}</h3>
+                {event.location && (
+                  <div className="flex items-center mb-4">
+                    <MapPin className="h-5 w-5 text-gray-500 mr-2" />
+                    <span className="text-gray-600">{event.location}</span>
+                  </div>
+                )}
                 <div className="flex items-start mb-4">
                   <Users className="h-5 w-5 text-gray-500 mr-2 mt-1" />
                   <div>
+                    {event.moderator && (
+                      <div className="mb-2">
+                        <p className="font-medium text-gray-700">Moderator:</p>
+                        <p className="text-gray-600 text-sm">{event.moderator}</p>
+                      </div>
+                    )}
                     <p className="font-medium text-gray-700 mb-2">Speakers:</p>
                     <ul className="text-gray-600 text-sm space-y-1">
                       {event.speakers.map((speaker, idx) => (
@@ -81,11 +185,29 @@ const Videos = () => {
                     </ul>
                   </div>
                 </div>
+                {event.links && (
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="font-medium text-gray-700 mb-2">Related Resources:</p>
+                    <ul className="text-blue-600 text-sm space-y-1">
+                      {event.links.map((link, idx) => (
+                        <li key={idx}>
+                          <a href="#" className="hover:underline">{link}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
               <div className="bg-gray-50 px-6 py-4">
                 <p className="text-sm text-gray-600">
                   Organized by: {event.organizer}
                 </p>
+                {!event.videoUrl && (
+                  <div className="mt-2 flex items-center text-blue-600 text-sm">
+                    <Video className="h-4 w-4 mr-2" />
+                    <span>Video coming soon</span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
