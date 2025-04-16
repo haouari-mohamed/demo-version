@@ -114,6 +114,153 @@ const Videos = () => {
         "Impact Assessment",
         "Aggregate Royalty determination"
       ]
+    },
+   
+    {
+      title: "Emerging issues in licensing and enforcement of Standard Essential Patents",
+      date: "September 7th and 8th, 2023",
+      location: "Warsaw",
+      organizer: "Institute of Legal Science – Polish Academy of Science",
+      videoUrl: "https://www.youtube.com/embed/48gmT8WzDkc?si=bLjlSQtd122F6cqk",
+      moderator: "Toby Sears (CMS)",
+      speakers: [
+        "Justus Baron, BRELA Research & Northwestern University",
+        "Benno Buehler, CRA International",
+        "David Herrington, Cleary Gottlieb",
+        "Fabian Hoffmann, Federal Court of Justice (Germany)",
+        "Jorge Padilla, Compass Lexecon"
+      ],
+      topics: [
+        "FRAND determination",
+        "EU SEP Regulation",
+        "Aggregate royalty determination"
+      ]
+    },
+    {
+      title: "The Economic Impact Of Patent Holdout",
+      date: "June 30th, 2023",
+      organizer: "4iP Council",
+      videoUrl: "https://www.youtube.com/embed/rpJ4iMMG7wY?si=8byjGboBltdfaJMA",
+      moderator: "Axel Ferrazzini, 4iP Council",
+      speakers: [
+        "Justus Baron, BRELA Research & Northwestern University",
+        "Bo Heiden, Center for Intellectual Property (CIP) University of Gothenburg & UC Berkeley"
+      ],
+      topics: [
+        "Patent infringement remedies",
+        "Patent hold-out"
+      ],
+      links: [
+        "The Economic Impact of Patent Holdout, Working Paper SSRN 4505268, July 2023"
+      ]
+    },
+    {
+      title: "Annual Conference on Global Standards Leadership",
+      date: "June 22nd, 2023",
+      location: "San Diego",
+      organizer: "BRELA Research & Partners",
+      videoUrl: "https://www.youtube.com/embed/VKTZBUNMnh8?si=PIKSJYzYiCkvLV-j",
+      moderator: "Justus Baron, BRELA Research & Northwestern University",
+      speakers: [
+        "Sukla Chandra, General Electric",
+        "Nigel Cory, ITIF",
+        "Giulia Neaher, Atlantic Council"
+      ],
+      topics: [
+        "Geopolitics of standards",
+        "Standardization of critical and emerging technologies",
+        "Standardization strategies"
+      ]
+    },
+    {
+      title: "Presentation of Two Empirical Studies on SEPs",
+      date: "May 4th, 2023",
+      location: "Brussels",
+      organizer: "LexisNexis Iplytics",
+      videoUrl: "https://www.youtube.com/embed/dvyVWD-qWXo?si=Dho2GQO_VJtm0-Jk",
+      speakers: [
+        "Pere Arque-Castells, University of Groningen",
+        "Justus Baron, BRELA Research & Northwestern University",
+        "Tim Pohlmann, LexisNexis iplytics",
+        "Eric Sergheraert, Clarivate Darts-IP and University of Lille"
+      ],
+      panelists: [
+        "Benno Buehler, CRA International",
+        "Taraneh Maghame, Maghame Consulting",
+        "Jorge Padilla, Compass Lexecon",
+        "Eric Stasik, Avvika"
+      ],
+      topics: [
+        "EU SEP Regulation",
+        "Impact Assessment"
+      ],
+      links: [
+        "Empirical Assessment of Potential Challenges in SEP Licensing",
+        "Essentiality Checks for Potential SEPs"
+      ]
+    },
+    {
+      title: "The European Standardisation System at Crossroads",
+      date: "May 4th, 2023",
+      location: "Brussels",
+      organizer: "CERRE – Centre on European Regulation",
+      videoUrl: "https://www.youtube.com/embed/0dFOShZjJe0?si=UShzHOfKYFAHmW4N",
+      moderator: "Alexandre de Streel, CERRE",
+      speakers: [
+        "Justus Baron, BRELA Research and Northwestern University",
+        "MEP Adam Bielan, Member of the European Parliament",
+        "Michael Eslamian, Huawei",
+        "Pierre Larouche, University of Montreal",
+        "Gerry McQuaid, Ofcom",
+        "Sophie Mueller, European Commission",
+        "Urska Petrovcic, Qualcomm",
+        "Elena Santiago Cid, CEN & CENELEC"
+      ],
+      topics: [
+        "EU Standardisation Strategy",
+        "Governance of European Standards Organisations",
+        "Geopolitics of Standardisation"
+      ],
+      links: [
+        "The European Standardisation System at a Crossroads, CERRE Report, May 2023"
+      ]
+    },
+    {
+      title: "Global FRAND & SEP Symposium",
+      date: "October 21st, 2022",
+      location: "Mountain View",
+      organizer: "Bauz IP Law",
+      videoUrl: "https://www.youtube.com/embed/ZgwyPQh94uE?si=3uImvRm9NyPhkA4x",
+      moderator: "Warren Lipschitz, McKool Smith",
+      speakers: [
+        "Justus Baron, BRELA Research & Northwestern University",
+        "Kurt Kjelland, Qualcomm",
+        "Joseph Matal, Haynes Boone",
+        "Tim Syrett, WilmerHale"
+      ],
+      topics: [
+        "SEP litigation",
+        "Geopolitics of standardization"
+      ]
+    },
+    {
+      title: "Global Standards Leadership Conference 2022",
+      date: "June 15th, 2022",
+      location: "Chicago",
+      organizer: "BRELA Research & Partners",
+      videoUrl: "https://www.youtube.com/embed/pK39eH8ltt4?si=LCQB6h_w3t9eWDxW",
+      moderator: "Justus Baron, BRELA Research and Northwestern University",
+      speakers: [
+        "Jorge Contreras, University of Utah",
+        "Gordon Gillerman, NIST",
+        "Bo Heiden, Center for Intellectual Property (CIP) University of Gothenburg & UC Berkeley",
+        "Alexandra Seymour, Center for New American Security"
+      ],
+      topics: [
+        "Standardization policy",
+        "Geopolitics of standardization",
+        "Standards and national security"
+      ]
     }
   ];
 
