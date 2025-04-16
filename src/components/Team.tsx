@@ -3,16 +3,16 @@ import React from 'react';
 const Team = () => {
   const team = [
     {
-      name: 'Burdo',
-      role: 'Research Director',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80',
-      bio: 'Expert in technology standards and patent analysis with over 15 years of experience.',
+      name: 'Santiago Bergallo',
+      role: 'Project Manager and Data Scientist at BRELA',
+      image: 'https://i0.wp.com/brela-research.com/wp-content/uploads/2024/10/DSF4242-2-1.jpg?resize=643%2C1024&ssl=1',
+      bio: 'Santiago is the Project Manager and Data Scientist at BRELA Research in Economics and Legal Analytics. He is responsible for effective communication within the team and for organizing the team through the agile approach to BRELA projects',
     },
     {
-      name: 'Santiago',
-      role: 'Senior Consultant',
-      image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&q=80',
-      bio: 'Specializes in empirical research and regulatory compliance analysis.',
+      name: 'Justus Baron',
+      role: 'Director and founder of BRELA',
+      image: 'https://i0.wp.com/brela-research.com/wp-content/uploads/2023/10/dsf4798.jpg?resize=1024%2C1536&ssl=1',
+      bio: 'Justus is the director and founder of BRELA, and the lead researcher for BRELA’s research publications and reports. He is also an academic researcher',
     },
   ];
 
@@ -30,8 +30,8 @@ const Team = () => {
           {team.map((member) => (
             <div key={member.name} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
               <div className="aspect-w-3 aspect-h-2">
-                <img
-                  className="w-full h-64 object-cover"
+              <img
+                  className="w-full h-30 object-cover object-top"
                   src={member.image}
                   alt={member.name}
                 />

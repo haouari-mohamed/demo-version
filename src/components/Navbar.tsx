@@ -14,9 +14,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <a href="#" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-blue-900">BRELA</span>
-            </a>
+          <a href="#" className="flex-shrink-0 flex items-center">
+            <img
+              src="https://i0.wp.com/brela-research.com/wp-content/uploads/2023/11/logo.png?fit=231%2C81&ssl=1"
+              alt="BRELA Logo"
+              className="h-10 w-auto"
+            />
+          </a>
+
           </div>
 
           {/* Desktop Menu */}
