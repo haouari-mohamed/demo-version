@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Calendar, Users, MapPin, Video } from 'lucide-react';
 
 const Videos = () => {
@@ -8,6 +8,7 @@ const Videos = () => {
       date: "December 2nd, 2024",
       organizer: "The Standards Training Academy",
       videoUrl: "https://www.youtube.com/embed/XCp8Mgq1nAU?si=z8KhjribgyLbqY-M", 
+      videoId: "XCp8Mgq1nAU",
       speakers: [
         "Knut Blind, Fraunhofer ISI & TU Berlin",
         "Maria P. Knake, NIST",
@@ -27,6 +28,7 @@ const Videos = () => {
       date: "August 26th, 2024",
       organizer: "BRELA Research & Partners",
       videoUrl: "https://www.youtube.com/embed/AdUVYcd7jKo?si=rkAwp8xBOEjzpiK8", 
+      videoId: "AdUVYcd7jKo",
       speakers: [
         "Peter Georg Picht, University of Zurich",
         "Tom Cotter, University of Minnesota",
@@ -46,6 +48,7 @@ const Videos = () => {
       location: "Berkeley",
       organizer: "BRELA Research and Partners",
       videoUrl: "https://www.youtube.com/embed/RYz71QN2nV4?si=YjUz56_6-SONYyW2", 
+      videoId: "RYz71QN2nV4",
       speakers: [
         "Prakash Sangam, Tantra Analyst",
         "Bowman Heiden, Haas School of Business Berkeley",
@@ -66,6 +69,7 @@ const Videos = () => {
       location: "Brussels",
       organizer: "Euractiv/Nokia",
       videoUrl: "https://www.youtube.com/embed/4t_-0ADYX0s?si=9uUcbIO706o9tnHP", 
+      videoId: "4t_-0ADYX0s",
       moderator: "Jennifer Baker, Euractiv",
       speakers: [
         "Justus Baron, BRELA Research",
@@ -89,6 +93,7 @@ const Videos = () => {
       location: "Washington D.C.",
       organizer: "C-IP2",
       videoUrl: "https://www.youtube.com/embed/A3ZnCvmAaWs?si=sS6CRFTYFGPS2zPh", 
+      videoId: "A3ZnCvmAaWs",
       moderator: "Andrei Iancu, Sullivan & Cromwell",
       speakers: [
         "Ken Adamo, Law Office of KRAdamo",
@@ -107,6 +112,7 @@ const Videos = () => {
       date: "September 20th, 2023",
       organizer: "4iP Council",
       videoUrl: "https://www.youtube.com/embed/6UaozKj1vZw?si=V783GipaEmg24k4h", 
+      videoId: "6UaozKj1vZw",
       moderator: "Axel Ferrazzini, 4iP Council",
       speakers: ["Justus Baron, BRELA Research"],
       topics: [
@@ -122,6 +128,7 @@ const Videos = () => {
       location: "Warsaw",
       organizer: "Institute of Legal Science – Polish Academy of Science",
       videoUrl: "https://www.youtube.com/embed/48gmT8WzDkc?si=bLjlSQtd122F6cqk",
+      videoId: "48gmT8WzDkc",
       moderator: "Toby Sears (CMS)",
       speakers: [
         "Justus Baron, BRELA Research & Northwestern University",
@@ -141,6 +148,7 @@ const Videos = () => {
       date: "June 30th, 2023",
       organizer: "4iP Council",
       videoUrl: "https://www.youtube.com/embed/rpJ4iMMG7wY?si=8byjGboBltdfaJMA",
+      videoId: "rpJ4iMMG7wY",
       moderator: "Axel Ferrazzini, 4iP Council",
       speakers: [
         "Justus Baron, BRELA Research & Northwestern University",
@@ -160,6 +168,7 @@ const Videos = () => {
       location: "San Diego",
       organizer: "BRELA Research & Partners",
       videoUrl: "https://www.youtube.com/embed/VKTZBUNMnh8?si=PIKSJYzYiCkvLV-j",
+      videoId: "VKTZBUNMnh8",
       moderator: "Justus Baron, BRELA Research & Northwestern University",
       speakers: [
         "Sukla Chandra, General Electric",
@@ -178,6 +187,7 @@ const Videos = () => {
       location: "Brussels",
       organizer: "LexisNexis Iplytics",
       videoUrl: "https://www.youtube.com/embed/dvyVWD-qWXo?si=Dho2GQO_VJtm0-Jk",
+      videoId: "dvyVWD-qWXo",
       speakers: [
         "Pere Arque-Castells, University of Groningen",
         "Justus Baron, BRELA Research & Northwestern University",
@@ -205,6 +215,7 @@ const Videos = () => {
       location: "Brussels",
       organizer: "CERRE – Centre on European Regulation",
       videoUrl: "https://www.youtube.com/embed/0dFOShZjJe0?si=UShzHOfKYFAHmW4N",
+      videoId: "0dFOShZjJe0",
       moderator: "Alexandre de Streel, CERRE",
       speakers: [
         "Justus Baron, BRELA Research and Northwestern University",
@@ -231,6 +242,7 @@ const Videos = () => {
       location: "Mountain View",
       organizer: "Bauz IP Law",
       videoUrl: "https://www.youtube.com/embed/ZgwyPQh94uE?si=3uImvRm9NyPhkA4x",
+      videoId: "ZgwyPQh94uE",
       moderator: "Warren Lipschitz, McKool Smith",
       speakers: [
         "Justus Baron, BRELA Research & Northwestern University",
@@ -249,6 +261,7 @@ const Videos = () => {
       location: "Chicago",
       organizer: "BRELA Research & Partners",
       videoUrl: "https://www.youtube.com/embed/pK39eH8ltt4?si=LCQB6h_w3t9eWDxW",
+      videoId: "pK39eH8ltt4",
       moderator: "Justus Baron, BRELA Research and Northwestern University",
       speakers: [
         "Jorge Contreras, University of Utah",
@@ -264,6 +277,56 @@ const Videos = () => {
     }
   ];
 
+  // State to track which videos have been loaded
+  const [loadedVideos, setLoadedVideos] = useState({});
+
+  // Function to handle intersection observer callback
+  const handleIntersection = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const videoId = entry.target.dataset.videoid;
+        if (videoId) {
+          setLoadedVideos(prev => ({
+            ...prev,
+            [videoId]: true
+          }));
+          // Unobserve once loaded
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  };
+
+  // Set up the intersection observer when component mounts
+  React.useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '200px', // Load videos a bit before they come into view
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver(handleIntersection, options);
+    
+    // Get all video containers and observe them
+    const videoContainers = document.querySelectorAll('.video-container');
+    videoContainers.forEach(container => {
+      observer.observe(container);
+    });
+    
+    // Cleanup on unmount
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Function to handle click on thumbnail to load video
+  const handleThumbnailClick = (videoId) => {
+    setLoadedVideos(prev => ({
+      ...prev,
+      [videoId]: true
+    }));
+  };
+
   return (
     <section id="videos" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,14 +341,35 @@ const Videos = () => {
           {events.map((event, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
               {event.videoUrl ? (
-                <div className="aspect-w-16 aspect-h-11">
-                  <iframe
-                    src={event.videoUrl}
-                    title={event.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full"
-                  ></iframe>
+                <div 
+                  className="aspect-w-16 aspect-h-9 video-container" 
+                  data-videoid={event.videoId}
+                >
+                  {loadedVideos[event.videoId] ? (
+                    <iframe
+                      src={event.videoUrl}
+                      title={event.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  ) : (
+                    <div 
+                      className="w-full h-full bg-gray-100 flex flex-col items-center justify-center cursor-pointer relative"
+                      onClick={() => handleThumbnailClick(event.videoId)}
+                    >
+                      <img 
+                        src={`https://img.youtube.com/vi/${event.videoId}/hqdefault.jpg`} 
+                        alt={event.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                          <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-white ml-1"></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="bg-gray-100 aspect-w-16 aspect-h-9 flex items-center justify-center">
