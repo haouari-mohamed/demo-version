@@ -6,6 +6,9 @@ import Contact from './components/Contact';
 import About from './components/About';
 import Services from './components/Services';
 import Videos from './components/Videos';
+import Resources from './components/Resources';
+import Publications from './components/Publications';
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
     <About />
     <Services />
     <Videos />
+    <Publications />
+    <Resources />
     <Team />
     <Contact />
   </div>
